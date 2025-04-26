@@ -4,18 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uppsägningskollen - Få koll på din rätt</title>
+  <title>Uppsägningskollen - Preliminär bedömning</title>
   <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
     <h1>Uppsägningskollen</h1>
-    <p>Få koll på dina rättigheter vid uppsägning</p>
+    <p>Få en preliminär bedömning av vad du kan ha rätt till vid uppsägning.</p>
   </header>
 
   <main>
     <section class="calculator">
       <h2>Snabbkalkyl</h2>
+      <p>Fyll i några enkla uppgifter för att få en första uppskattning av din ersättning och möjliga förhandlingsmål.</p>
       <form id="calculator-form">
         <label for="salary">Månadslön (SEK):</label><br>
         <input type="number" id="salary" name="salary" required><br><br>
@@ -36,12 +38,13 @@
       <div id="results" style="display:none;">
         <h3>Din preliminära bedömning</h3>
         <div id="graphic-summary"></div>
+        <canvas id="resultChart" width="400" height="300"></canvas>
       </div>
     </section>
 
     <section class="newsletter">
-      <h2>Vill du få mer vägledning?</h2>
-      <p>Lämna din e-post så håller vi dig uppdaterad!</p>
+      <h2>Vill du få mer vägledning framöver?</h2>
+      <p>Lämna din e-postadress om du vill ta del av framtida tips och nyheter.</p>
       <form action="https://formspree.io/f/mnqepzvp" method="POST">
         <input type="email" name="email" placeholder="Din e-postadress" required>
         <button type="submit">Skicka</button>
