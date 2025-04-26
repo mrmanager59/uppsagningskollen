@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uppsägningskollen - Få koll på din rätt</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>Uppsägningskollen</h1>
+    <p>Få koll på dina rättigheter vid uppsägning</p>
+  </header>
+
+  <main>
+    <section class="calculator">
+      <h2>Snabbkalkyl</h2>
+      <form id="calculator-form">
+        <label for="salary">Månadslön (SEK):</label><br>
+        <input type="number" id="salary" name="salary" required><br><br>
+
+        <label for="years">Antal år anställd:</label><br>
+        <input type="number" id="years" name="years" required><br><br>
+
+        <label for="collective">Har du kollektivavtal?</label><br>
+        <select id="collective" name="collective" required>
+          <option value="yes">Ja</option>
+          <option value="no">Nej</option>
+          <option value="unknown">Vet inte</option>
+        </select><br><br>
+
+        <button type="submit">Visa resultat</button>
+      </form>
+
+      <div id="results" style="display:none;">
+        <h3>Din preliminära bedömning</h3>
+        <div id="graphic-summary"></div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Vill du få mer vägledning?</h2>
+      <p>Lämna din e-post så håller vi dig uppdaterad!</p>
+      <form action="https://formspree.io/f/mnqepzvp" method="POST">
+        <input type="email" name="email" placeholder="Din e-postadress" required>
+        <button type="submit">Skicka</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Uppsägningskollen. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
