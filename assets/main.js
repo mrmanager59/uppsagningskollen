@@ -2,6 +2,8 @@
 const form = document.getElementById('calculator-form');
 const results = document.getElementById('results');
 const graphicSummary = document.getElementById('graphic-summary');
+const ctx = document.getElementById('resultChart').getContext('2d');
+let chart; // Keep chart instance
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -41,6 +43,27 @@ form.addEventListener('submit', function(event) {
     <p><strong>Lagstadgad ersättning:</strong> ${legalCompensation.toLocaleString()} SEK</p>
     <p><strong>Rimligt förhandlingsmål:</strong> ${minNegotiationTarget.toLocaleString()} – ${maxNegotiationTarget.toLocaleString()} SEK</p>
   `;
+
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Lagstadgad rätt', 'Lägre förhandlingsmål', 'Högre förhandlingsmål'],
+      datasets: [{
+        label: 'Belopp (SEK)',
+        data: [legalCompensation, minNegotiationTarget, maxNegotiationTarget],
+        backgroundColor: ['#0a9396', '#94d2bd', '#0077b6']
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 
   results.style.display = 'block';
 });
